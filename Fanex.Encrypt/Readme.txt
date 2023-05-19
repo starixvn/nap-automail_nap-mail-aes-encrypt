@@ -1,0 +1,1 @@
+﻿https://www.siakabaro.com/how-to-perform-aes-encryption-in-net/
