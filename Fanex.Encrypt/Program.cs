@@ -7,11 +7,18 @@ namespace Fanex.Encrypt.Service
     {
         private static void Main(string[] args)
         {
+            var key = "12345678901234561234567890123456";
+            var vector = "1234567890123456";
+
             var plainText = "Folder=01-DropTOByLic&FileName=Weekly_Dropped_Turnover_by_Licensee_Report_From_2022_05_23_To_2022_05_29.xlsx&ReportId=04&Time=5/11/2023 3:33:30 pm&mailid=2451&mailaddress=charles.nguyen@starixsoft.com&Title=Auto Generated Report Administrator&Subject=Automail Report - Weekly Dropped Turnover by Licensee Report  - 2023/05/11";
             string cipherText = AesEncrypt.EncryptDataWithAes(plainText, out string keyBase64, out string vectorBase64);
-
             var text = AesEncrypt.DecryptDataWithAes(cipherText, keyBase64, vectorBase64);
+
+            cipherText = AesEncrypt2.EncryptDataWithAes(plainText, key, vector);
+            text = AesEncrypt2.DecryptDataWithAes(cipherText, key, vector);
+
             Console.WriteLine(text);
+
             Console.ReadKey();
         }
     }
